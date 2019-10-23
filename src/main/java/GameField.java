@@ -38,14 +38,14 @@ public class GameField extends JPanel implements ActionListener {
             x[i] = 48 - i * DOT_SIZE;
             y[i] = 48;
         }
-        timer = new Timer(150, this);
+        timer = new Timer(200, this);
         timer.start();
         createCake();
     }
 
     public void createCake() {
-        cakeX = new Random().nextInt(20) * DOT_SIZE;
-        cakeY = new Random().nextInt(20) * DOT_SIZE;
+        cakeX = new Random().nextInt(19) * DOT_SIZE;
+        cakeY = new Random().nextInt(19) * DOT_SIZE;
     }
 
     public void loadImages() {
@@ -64,9 +64,11 @@ public class GameField extends JPanel implements ActionListener {
                 g.drawImage(mario, x[i], y[i], this);
             }
         } else {
-            String s = "Game Over";
+            String go = "Game Over :(";
             g.setColor(Color.WHITE);
-            g.drawString(s, 125, SIZE / 2);
+            g.drawString(go, 125, SIZE / 2);
+            String scores = "scores: " + (dots - 3);
+            g.drawString(scores, 130, SIZE / 2 + 20);
         }
     }
 
